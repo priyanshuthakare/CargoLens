@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* === Dark Design System Tokens === */
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-glass: rgba(255, 255, 255, 0.03);
+    --bg-glass-border: rgba(255, 255, 255, 0.08);
+    --accent-gradient-start: #6366f1;
+    --accent-gradient-end: #ec4899;
+    --accent-purple: #8b5cf6;
+    --accent-purple-hover: #7c3aed;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-muted-dark: rgba(255, 255, 255, 0.4);
+    --success: #10b981;
+    --card-bg: #1a1a24;
+    --card-border: rgba(255, 255, 255, 0.06);
+
+    /* === Legacy tokens (kept for non-overhauled pages) === */
+    --color-navy: #0A1628;
+    --color-blue: #1A56DB;
+    --color-cyan: #06B6D4;
+    --color-slate: #334155;
+    --color-bg: #0a0a0f;
+    --color-surface: #12121a;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-green: #10B981;
+    --color-amber: #F59E0B;
+    --color-red: #EF4444;
+    --color-text: #ffffff;
+    --color-muted: rgba(255, 255, 255, 0.5);
+
+    /* shadcn compatibility — dark mode */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+    --card: 240 8% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 8% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 6% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted-shadcn: 240 6% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 240 6% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border-shadcn: 240 6% 15%;
+    --input: 240 6% 15%;
+    --ring: 239 84% 67%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 8% 8%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 239 84% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 6% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 240 6% 15%;
+    --sidebar-ring: 239 84% 67%;
+
+    /* Confidence badge — adapted for dark */
+    --confidence-high-bg: rgba(16, 185, 129, 0.15);
+    --confidence-high-text: #34d399;
+    --confidence-high-border: rgba(16, 185, 129, 0.3);
+    --confidence-medium-bg: rgba(245, 158, 11, 0.15);
+    --confidence-medium-text: #fbbf24;
+    --confidence-medium-border: rgba(245, 158, 11, 0.3);
+    --confidence-low-bg: rgba(239, 68, 68, 0.15);
+    --confidence-low-text: #f87171;
+    --confidence-low-border: rgba(239, 68, 68, 0.3);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--accent-purple);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* === Dark Design System Utilities === */
+
+  /* Glassmorphism card — primary glass effect */
+  .glass-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--bg-glass-border);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Solid dark card — inner panels */
+  .card-dark {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+  }
+
+  /* Gradient CTA button */
+  .gradient-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    box-shadow: 0 10px 40px -10px rgba(236, 72, 153, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gradient-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px -10px rgba(236, 72, 153, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  .gradient-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Aurora hero background */
+  .aurora-bg {
+    background-color: var(--bg-primary);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(99, 102, 241, 0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 70% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+  }
+
+  /* Section eyebrow label */
+  .eyebrow-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+  }
+
+  .eyebrow-label-muted {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted-dark);
+  }
+
+  /* Featured pricing card */
+  .pricing-featured {
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.1) 0%, rgba(26, 26, 36, 0.8) 100%);
+    border-radius: 24px;
+  }
+
+  /* Integration icon container */
+  .integration-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--bg-glass);
+    border: 1px solid var(--card-border);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .integration-icon:hover {
+    transform: scale(1.08);
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+
+  /* ─── Legacy utilities (kept for compatibility) ─── */
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .label-uppercase {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+  }
+
+  /* Grid overlay for hero */
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Shimmer effect for badges */
+  .shimmer-badge {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: skewX(-20deg) translateX(-200%);
+    animation: shimmer 3s infinite;
+  }
+
+  .magnetic-hover {
+    transition: transform 0.15s ease-out;
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-purple);
+    transition: width 0.3s ease-out;
+  }
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  .card-hover {
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.2);
+  }
+
+  .btn-press {
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  }
+  .btn-press:hover {
+    transform: scale(0.98);
+  }
+  .btn-press:active {
+    transform: scale(0.96);
+  }
+
+  /* Dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
