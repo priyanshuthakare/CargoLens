@@ -13,10 +13,12 @@ import Changelog from '@/pages/Changelog';
 import Demo from '@/pages/Demo';
 import Waitlist from '@/pages/Waitlist';
 import NotFound from '@/pages/NotFound';
+import { Databuddy } from "@databuddy/sdk/react";
 
 export default function App() {
   return (
     <Layout>
+      <Databuddy clientId={import.meta.env.VITE_DATABUDDY_CLIENT_ID!} trackWebVitals trackErrors />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pricing" element={<Pricing />} />
