@@ -57,7 +57,7 @@ export default function Security() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section ref={heroRef} className="bg-navy py-24 grid-overlay">
+      <section ref={heroRef} className="bg-[#0a0a0f] py-24 grid-overlay">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -88,7 +88,7 @@ export default function Security() {
       </section>
 
       {/* AI Policy Banner */}
-      <section className="bg-[#0a0a0f] py-12">
+      <section className="bg-[#0d0d16] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export default function Security() {
       </section>
 
       {/* Security Sections */}
-      <section ref={sectionsRef} className="bg-bg py-12">
+      <section ref={sectionsRef} className="bg-[#0a0a0f] py-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-16">
             {sections.map((s, i) => (
@@ -278,7 +278,7 @@ export default function Security() {
       </section>
 
       {/* DPA + Responsible Disclosure */}
-      <section className="bg-[#0a0a0f] py-16">
+      <section className="bg-[#0a0a0f] py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <motion.div
@@ -320,7 +320,7 @@ export default function Security() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-[#0a0a0f] py-16 relative overflow-hidden">
+      <section className="bg-[#0d0d16] py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-transparent to-violet-900/20 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl font-bold text-white mb-4">Questions about security?</h2>
